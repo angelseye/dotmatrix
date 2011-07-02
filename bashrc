@@ -6,7 +6,9 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 GITPROMPT='$(__git_ps1)'
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+if [[ -z "$PS1" ]] ; then
+
+source "$HOME/.hashrc"
 
 # Define a few Colours
 BLACK='\e[0;30m'
@@ -42,6 +44,22 @@ HISTFILESIZE=5000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Define some other variables
+VISUAL=vim
+EDITOR="$VISUAL"
+LESS="FRX"
+RI="--format ansi -T"
+PSQL_EDITOR='vim -c"set syntax=sql"'
+CLICOLOR=1
+LSCOLORS=gxgxcxdxbxegedabagacad
+
+export VISUAL EDITOR LESS RI PSQL_EDITOR CLICOLOR LSCOLORS
+
+bind 'set bind-tty-special-chars off'
+bind '"\ep": history-search-backward'
+bind '"\en": history-search-forward'
+bind '"\C-w": backward-kill-word'
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -134,6 +152,43 @@ if [ -x /usr/local/bin/brew ]; then
   fi
 fi
 
- 
+fi
+
+# ~/.bashrc
+# vim:set ft=sh sw=2 sts=2:
+
+source "$HOME/.hashrc"
+
+# Store 10,000 history entries
+export HISTSIZE=10000
+# Don't store duplicates
+export HISTCONTROL=erasedups
+# Append to history file
+shopt -s histappend
+
+VISUAL=vim
+EDITOR="$VISUAL"
+LESS="FRX"
+RI="--format ansi -T"
+PSQL_EDITOR='vim -c"set syntax=sql"'
+CLICOLOR=1
+LSCOLORS=gxgxcxdxbxegedabagacad
+
+export VISUAL EDITOR LESS RI PSQL_EDITOR CLICOLOR LSCOLORS
+
+bind 'set bind-tty-special-chars off'
+bind '"\ep": history-search-backward'
+bind '"\en": history-search-forward'
+bind '"\C-w": backward-kill-word'
+
+[ -z "$PS1" ] || stty -ixon
+
+[ -z "$PS1" ] || export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$(git_prompt_info '(%s)')$ "
+
+[ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
+
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; export rvm_pretty_print_flag=1 ; fi
+
+# This loads RVM into a shell session
+[[ -s "/Users/ewilson/.rvm/scripts/rvm" ]] && source "/Users/ewilson/.rvm/scripts/rvm"
 

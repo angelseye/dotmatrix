@@ -15,6 +15,7 @@ set nowrap
 set t_Co=256
 set shiftwidth=2
 set expandtab
+set guifont=Monaco:h13
 
 let mapleader = "\\"
 map <Leader>n :NERDTreeToggle<CR>

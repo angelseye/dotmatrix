@@ -7,8 +7,10 @@ VIMFOLDER=${HOME}/.vim
 BASHRC=${HOME}/.bashrc
 BASHPROFILE=${HOME}/.bash_profile
 GEMRC=${HOME}/.gemrc
+HASHRC=${HOME}/.hashrc
 
 # First remove existing files if they exist
+# Remove VIMRC
 if [ -h ${VIMRC} ]; then
 	echo ".vimrc is a LINK, unlinking"
 	unlink ${VIMRC}
@@ -19,6 +21,7 @@ else
 	echo "${VIMRC} was not found"
 fi
 
+# Remove GVIMRC
 if [ -h ${GVIMRC} ]; then
 	echo ".gvimrc is a LINK, unlinking"
 	unlink ${GVIMRC}
@@ -29,6 +32,7 @@ else
 	echo "${GVIMRC} was not found"
 fi
 
+# Remove Vim Folder
 if [ -h ${VIMFOLDER} ]; then
 	echo ".vim is a LINK, unlinking"
 	unlink ${VIMFOLDER}
@@ -39,6 +43,7 @@ else
 	echo "${VIMFOLDER} was not found"
 fi
 
+# Remove BASHRC
 if [ -h ${BASHRC} ]; then
 	echo ".bashrc is a LINK, unlinking"
 	unlink ${BASHRC}
@@ -49,6 +54,7 @@ else
 	echo "${BASHRC} was not found"
 fi
 
+# Remove Bash Profile
 if [ -h ${BASHPROFILE} ]; then
 	echo ".bash_profile is a LINK, unlinking"
 	unlink ${BASHPROFILE}
@@ -59,6 +65,7 @@ else
 	echo "${BASHPROFILE} was not found"
 fi
 
+# Remove GEMRC
 if [ -h ${GEMRC} ]; then
 	echo ".gemrc is a LINK, unlinking"
 	unlink ${GEMRC}
@@ -67,6 +74,17 @@ elif [ -f ${GEMRC} ]; then
 	rm -f ${GEMRC}
 else
 	echo "${GEMRC} was not found"
+fi
+
+# Remove Hashrocket RC
+if [ -h ${HASHRC} ]; then
+        echo ".hashrc is a LINK, unlinking"
+        unlink ${HASHRC}
+elif [ -f ${HASHRC} ]; then
+        echo ".hashrc is a FILE, deleting"
+        rm -f ${HASHRC}
+else
+        echo "${HASHRC} was not found"
 fi
 
 
@@ -89,4 +107,7 @@ ln -s `pwd`/bash_profile $BASHPROFILE
 
 echo "Linking .gemrc file"
 ln -s `pwd`/gemrc $GEMRC
+
+echo "Linking .hashrc file"
+ln -s ${HOME}/Utilities/hashrocket_dotmatrix/.hashrc $HASHRC
 
