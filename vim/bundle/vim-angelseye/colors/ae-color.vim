@@ -1,9 +1,13 @@
+" ae-color (vim color scheme for AngelsEye, Inc)
+" http://www.angelseyeinc.com
+
+" Adapted from the following:
 " ir_black color scheme
 " More at: http://blog.infinitered.com/entries/show/8
 
 
 " ********************************************************************************
-" Standard colors used in all ir_black themes:
+" Standard colors used in all ae-color themes:
 " Note, x:x:x are RGB values
 "
 "  normal: #f6f3e8
@@ -60,7 +64,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "ir_black"
+let colors_name = "ae-color"
 
 
 "hi Example         guifg=NONE        guibg=NONE        gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
@@ -78,7 +82,7 @@ hi StatusLineNC     guifg=#CCCCCC     guibg=#222222     gui=NONE      ctermfg=bl
 
 hi Folded           guifg=#a0a8b0     guibg=#384048     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 hi Title            guifg=#f6f3e8     guibg=NONE        gui=bold      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-hi Visual           guifg=NONE        guibg=#262D51     gui=NONE      ctermfg=NONE        ctermbg=darkgray    cterm=NONE
+hi Visual           guifg=#003300     guibg=#00FF00     gui=NONE      ctermfg=NONE        ctermbg=darkgray    cterm=NONE
 
 hi SpecialKey       guifg=#808080     guibg=#343434     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
@@ -119,27 +123,52 @@ hi Function         guifg=#FF99CC     guibg=NONE        gui=NONE      ctermfg=br
 hi Type             guifg=#FFFFB6     guibg=NONE        gui=NONE      ctermfg=yellow      ctermbg=NONE        cterm=NONE
 hi Statement        guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=lightblue   ctermbg=NONE        cterm=NONE
 
-hi Special          guifg=white 	    guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
+hi Special          guifg=white       guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 hi Delimiter        guifg=#0099FF     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
 hi Operator         guifg=white       guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 
-hi link Character       Constant
-hi link Boolean         Constant
-hi link Float           Number
-hi link Repeat          Statement
-hi link Label           Statement
-hi link Exception       Statement
-hi link Include         PreProc
-hi link Define          PreProc
-hi link Macro           PreProc
-hi link PreCondit       PreProc
-hi link StorageClass    Type
-hi link Structure       Type
-hi link Typedef         Type
-hi link Tag             Special
-hi link SpecialChar     Special
-hi link SpecialComment  Special
-hi link Debug           Special
+hi link Character               Constant
+hi link Boolean                 Constant
+hi link Float                   Number
+hi link Repeat                  Statement
+hi link Label                   Statement
+hi link Exception               Statement
+hi link Include                 PreProc
+hi link Define                  PreProc
+hi link Macro                   PreProc
+hi link PreCondit               PreProc
+hi link StorageClass            Type
+hi link Structure               Type
+hi link Typedef                 Type
+hi link Tag                     Special
+hi link SpecialChar             Special
+hi link SpecialComment          Special
+hi link Debug                   Special
+
+
+" Special for HTML
+hi htmlTag                      guifg=#FFFF00			guibg=NONE
+hi htmlArg											guifg=#FF9900			guibg=NONE
+hi link htmlTagName							htmlTag
+hi link htmlEndTag							htmlTag
+hi link htmlTagN								htmlTag
+hi link htmlStatement	        	htmlTag
+hi link htmlPreStmt							htmlTag
+hi link htmlSpecialTag					htmlTag
+hi link htmlSpecialTagName			htmlTag
+
+
+" Special for Javascript
+hi javaScriptRegexpString 			guifg=#009900
+hi javaScriptIdentifier 				guifg=#00FFFF
+hi link javaScriptBraces 				Operator
+hi link javaScriptNumber        Number 
+hi link javaScriptConditional   Keyword
+hi link javaScriptBoolean				Keyword
+hi link javaScriptFunction			Keyword
+
+
+" Special for CSS
 
 
 " Special for Ruby
@@ -162,45 +191,60 @@ hi link rubyClassVariable     	Identifier
 hi link rubyConstant          	Type  
 
 
-" Special for Java
-" hi link javaClassDecl    Type
-hi link javaScopeDecl         Identifier 
-hi link javaCommentTitle      javaDocSeeTag 
-hi link javaDocTags           javaDocSeeTag 
-hi link javaDocParam          javaDocSeeTag 
-hi link javaDocSeeTagParam    javaDocSeeTag 
+" Special for Coldfusion
+hi link cfTagName 							Statement
+hi cfArg 												guifg=#DD88FF
+hi link cfFunctionName 					Function
+hi link cfHashRegion 						PreProc
+hi link cfComment 							Comment
+hi link cfCommentTodo 					Todo
+hi link cfOperator							Operator
+hi link cfOperatorMatch					Operator
+hi link cfScope									Title
+hi link cfBool									Constant
 
-hi javaDocSeeTag              guifg=#CCCCCC     guibg=NONE        gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
-hi javaDocSeeTag              guifg=#CCCCCC     guibg=NONE        gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
-"hi javaClassDecl              guifg=#CCFFCC     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
+hi link cfscriptBlock 					Special
+hi link cfscriptTag 						PreProc
+hi link cfSetRegion 						PreProc
+hi link cfSetLHSRegion 					PreProc
+hi link cfSetTagEnd							PreProc
+
+hi link cfScriptLineComment			Comment
+hi link cfScriptComment					Comment
+hi link cfScriptStringS					String
+hi link cfScriptStringD					String
+hi link cfScriptNumber	     		Number
+hi link cfScriptConditional			Conditional
+hi link cfScriptRepeat	     		Repeat
+hi link cfScriptBranch	     		Conditional
+hi link cfScriptType						Type
+hi link cfScriptStatement				Statement
+hi link cfScriptBraces	     		Function
+hi link cfScriptFunction    		Function
+hi link cfScriptError	     			Error
+hi link cfDeprecated	     			Error
+hi link cfScrParenError					Error
+
+hi link cfqueryTag 							PreProc
 
 
 " Special for XML
-hi link xmlTag          Keyword 
-hi link xmlTagName      Conditional 
-hi link xmlEndTag       Identifier 
+hi link xmlTag                  Identifier 
+hi link xmlTagName              Identifier 
+hi link xmlEndTag               Identifier 
 
 
-" Special for HTML
-hi htmlTag         						guifg=#FFFF00			guibg=NONE
-hi htmlArg										guifg=#FF9900			guibg=NONE
-hi link htmlTagName						htmlTag
-hi link htmlEndTag						htmlTag
-hi link htmlTagN							htmlTag
-hi link htmlStatement					htmlTag
-hi link htmlPreStmt						htmlTag
-hi link htmlSpecialTag				htmlTag
-hi link htmlSpecialTagName		htmlTag
+" Special for Java
+" hi link javaClassDecl         Type
+hi link javaScopeDecl           Identifier 
+hi link javaCommentTitle        javaDocSeeTag 
+hi link javaDocTags             javaDocSeeTag 
+hi link javaDocParam            javaDocSeeTag 
+hi link javaDocSeeTagParam      javaDocSeeTag 
 
-
-" Special for Javascript
-hi javaScriptRegexpString 		guifg=#009900
-hi javaScriptIdentifier 			guifg=#00FFFF
-hi link javaScriptBraces 			Operator
-hi link javaScriptNumber      Number 
-hi link javaScriptConditional Keyword
-hi link javaScriptBoolean			Keyword
-hi link javaScriptFunction		Keyword
+hi javaDocSeeTag                guifg=#CCCCCC     guibg=NONE        gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
+hi javaDocSeeTag                guifg=#CCCCCC     guibg=NONE        gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
+"hi javaClassDecl               guifg=#CCFFCC     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 
 
 " Special for Python
@@ -208,7 +252,7 @@ hi link javaScriptFunction		Keyword
 
 
 " Special for CSharp
-hi  link csXmlTag             Keyword      
+hi link csXmlTag               Keyword      
 
 
 " Special for PHP

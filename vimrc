@@ -46,4 +46,5 @@ runtime! macros/matchit.vim
 "augroup END
 
 " Other settings
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --column"
+au FileType html,xhtml,xml so ~/Utilities/dotmatrix/vim/bundle/vim-autoclose/ftplugin/html_autoclosetag.vim

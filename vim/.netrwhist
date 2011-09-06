@@ -1,7 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/mkoby/git/LiveShow/app/controllers'
-let g:netrw_dirhist_2='/home/mkoby/git/algorithms/ruby/sorting/insertion_sort.rb'
-let g:netrw_dirhist_3='/Users/ewilson'
-let g:netrw_dirhist_4='/Users/ewilson/projects/jfb/liveshow'
-let g:netrw_dirhist_5='/Users/ewilson'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/ewilson/projects/gills'
