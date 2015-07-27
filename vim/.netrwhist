@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/ewilson/projects/gills'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ewilson/projects/tpf'
+let g:netrw_dirhist_2='/Users/ewilson/projects/lltb'
+let g:netrw_dirhist_3='/Users/ewilson/projects/vam'
+let g:netrw_dirhist_4='/Users/ewilson/projects/lltb'
+let g:netrw_dirhist_5='/Users/ewilson/projects/novitas/vetconnector/VetConnector.Web'
+let g:netrw_dirhist_6='/Users/ewilson/projects/handstand/primer-v3-server'
+let g:netrw_dirhist_7='/Users/ewilson/projects/novitas/vetconnector/VetConnector.Web'
+let g:netrw_dirhist_8='/Users/ewilson/projects/lltb'

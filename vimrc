@@ -48,3 +48,4 @@ runtime! macros/matchit.vim
 " Other settings
 let g:ackprg="ack -H --column"
 au FileType html,xhtml,xml so ~/Utilities/dotmatrix/vim/bundle/vim-autoclose/ftplugin/html_autoclosetag.vim
+au BufRead,BufNewFile *.haml	setfiletype haml

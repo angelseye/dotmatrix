@@ -192,3 +192,8 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]  ; then source "$HOME/.rvm/scripts/rvm" ; e
 # This loads RVM into a shell session
 [[ -s "/Users/ewilson/.rvm/scripts/rvm" ]] && source "/Users/ewilson/.rvm/scripts/rvm"
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
